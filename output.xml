@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.4 on win32)" generated="20221214 11:43:42.985" rpa="false" schemaversion="3">
+<suite id="s1" name="Socks" source="c:\Users\rtrob\PycharmProjects\socks\tests\socks.robot">
+<test id="s1-t1" name="Verify basic search functionality" line="17">
+<kw name="Start TestCase" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.amazon.com</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221214 11:43:43.140" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.com'.</msg>
+<status status="PASS" starttime="20221214 11:43:43.139" endtime="20221214 11:43:45.442"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221214 11:43:45.442" endtime="20221214 11:43:45.567"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:43.139" endtime="20221214 11:43:45.568"/>
+</kw>
+<kw name="Input Search Text and Click Search Button" library="Search">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchTextBox}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221214 11:43:45.569" level="INFO">Typing text 'socks' into text field 'id:twotabsearchtextbox'.</msg>
+<status status="PASS" starttime="20221214 11:43:45.568" endtime="20221214 11:43:45.662"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${SearchButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221214 11:43:45.663" level="INFO">Clicking button 'id:nav-search-submit-button'.</msg>
+<status status="PASS" starttime="20221214 11:43:45.663" endtime="20221214 11:43:47.719"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:45.568" endtime="20221214 11:43:47.719"/>
+</kw>
+<kw name="Verify Search Results" library="SearchResults">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${search_result} "${search_text}"</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221214 11:43:47.746" level="INFO">Current page contains text 'results for "socks"'.</msg>
+<status status="PASS" starttime="20221214 11:43:47.720" endtime="20221214 11:43:47.746"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:47.720" endtime="20221214 11:43:47.747"/>
+</kw>
+<kw name="Click First Result" library="SearchResults">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${FirstSearchResult}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221214 11:43:47.748" level="INFO">Clicking element '//div[contains (@cel_widget_id, 'MAIN-SEARCH_RESULTS')]//img[@class='s-image']'.</msg>
+<status status="PASS" starttime="20221214 11:43:47.747" endtime="20221214 11:43:50.813"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:47.747" endtime="20221214 11:43:50.813"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${passed}</var>
+<arg>Element Should Be Visible</arg>
+<arg>xpath://*[@id=""//*[@id='variation_size_name']/div[2]/label""]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id=""//*[@id='variation_size_name']/div[2]/label""]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221214 11:43:51.017" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221214 11:43:51.017" level="FAIL">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression //*[@id=""//*[@id='variation_size_name']/div[2]/label""] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//*[@id=""//*[@id='variation_size_name']/div[2]/label""]' is not a valid XPath expression.
+  (Session info: chrome=108.0.5359.99)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00D5F243]
+	(No symbol) [0x00CE7FD1]
+	(No symbol) [0x00BDD04D]
+	(No symbol) [0x00BDFD34]
+	(No symbol) [0x00BDFBE5]
+	(No symbol) [0x00BDFE80]
+	(No symbol) [0x00C0BD55]
+	(No symbol) [0x00C0C22B]
+	(No symbol) [0x00C3E64C]
+	(No symbol) [0x00C285D4]
+	(No symbol) [0x00C3C9EB]
+	(No symbol) [0x00C28386]
+	(No symbol) [0x00C0163C]
+	(No symbol) [0x00C0269D]
+	GetHandleVerifier [0x00FF9A22+2655074]
+	GetHandleVerifier [0x00FECA24+2601828]
+	GetHandleVerifier [0x00E08C0A+619850]
+	GetHandleVerifier [0x00E07830+614768]
+	(No symbol) [0x00CF05FC]
+	(No symbol) [0x00CF5968]
+	(No symbol) [0x00CF5A55]
+	(No symbol) [0x00D0051B]
+	BaseThreadInitThunk [0x759A6939+25]
+	RtlGetFullPathName_UEx [0x77868FD2+1218]
+	RtlGetFullPathName_UEx [0x77868F9D+1165]
+</msg>
+<status status="FAIL" starttime="20221214 11:43:50.814" endtime="20221214 11:43:51.019"/>
+</kw>
+<msg timestamp="20221214 11:43:51.020" level="INFO">${passed} = False</msg>
+<status status="PASS" starttime="20221214 11:43:50.813" endtime="20221214 11:43:51.020"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${passed}</arg>
+<arg>Keyword Passed</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20221214 11:43:51.020" endtime="20221214 11:43:51.020"/>
+</kw>
+<kw name="Add To Cart" library="Product">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AddToCartButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221214 11:43:51.022" level="INFO">Clicking button 'id:add-to-cart-button'.</msg>
+<status status="PASS" starttime="20221214 11:43:51.021" endtime="20221214 11:43:52.178"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:51.021" endtime="20221214 11:43:52.178"/>
+</kw>
+<kw name="Verify Product Added to Cart" library="Product">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${added_to_cart}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221214 11:43:52.223" level="INFO">Current page contains text 'Added to Cart'.</msg>
+<status status="PASS" starttime="20221214 11:43:52.179" endtime="20221214 11:43:52.223"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:52.178" endtime="20221214 11:43:52.223"/>
+</kw>
+<kw name="Finish TestCase" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221214 11:43:52.225" endtime="20221214 11:43:54.346"/>
+</kw>
+<status status="PASS" starttime="20221214 11:43:52.224" endtime="20221214 11:43:54.347"/>
+</kw>
+<doc>Amazon test</doc>
+<tag>Functional</tag>
+<status status="PASS" starttime="20221214 11:43:43.138" endtime="20221214 11:43:54.347"/>
+</test>
+<doc>Basic Search Functionality</doc>
+<status status="PASS" starttime="20221214 11:43:42.988" endtime="20221214 11:43:54.348"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Functional</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Socks">Socks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221214 11:43:43.002" level="WARN">Imported resource file 'c:\Users\rtrob\PycharmProjects\socks\Resources\PageObjects\Cart.robot' is empty.</msg>
+<msg timestamp="20221214 11:43:43.131" level="ERROR">Error in file 'c:\Users\rtrob\PycharmProjects\socks\tests\socks.robot' on line 5: Error in file 'c:\Users\rtrob\PycharmProjects\socks\Resources\PageObjects\Login.robot' on line 7: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>
